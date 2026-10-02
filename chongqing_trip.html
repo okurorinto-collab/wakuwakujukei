@@ -102,10 +102,10 @@ main{max-width:600px;margin:0 auto;padding:16px 12px 80px}
 /* PHOTO (thumbnail on the left) */
 .photo{margin:0}
 .event-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--border);border-radius:10px}
-.event-card:has(> .photo){display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:14px}
+.event-card:has(> .photo){display:grid;grid-template-columns:120px minmax(0,1fr);gap:14px;padding:14px}
 .event-card:has(> .photo) .event-body{padding:0}
 .photo-credit{font-size:9px;color:var(--light);margin-top:8px;line-height:1.4}
-@media (min-width:480px){.event-card:has(> .photo){grid-template-columns:128px minmax(0,1fr);gap:16px;padding:16px}}
+@media (min-width:480px){.event-card:has(> .photo){grid-template-columns:180px minmax(0,1fr);gap:18px;padding:16px}}
 
 .btn-row{display:flex;gap:6px;flex-wrap:wrap}
 .map-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--text);padding:5px 12px;border-radius:8px;text-decoration:none;transition:background .15s,border-color .15s,color .15s}
@@ -657,6 +657,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
   </div>
 
   <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/%E9%BE%99%E6%B0%B4%E5%B3%A1%E5%9C%B0%E7%BC%9D%20-%20Longshuixia%20Canyon%20-%202015.04%20-%20panoramio.jpg?width=600" alt="龍水峡地縫の峡谷" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
     <div class="event-body">
       <div class="event-top"><span class="event-time">15:30〜17:30</span><span class="event-tag tag-main">メイン 2</span></div>
       <div class="event-name">【スポット3】龍水峡地縫（Longshuixia Gorge）</div>
@@ -668,6 +669,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%BE%99%E6%B0%B4%E5%B3%A1%E5%9C%B0%E7%BC%9D&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
         <button class="map-btn copy-cn" type="button" data-copy="龙水峡地缝" aria-label="「龙水峡地缝」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">龙水峡地缝</span></button>
       </div>
+      <div class="photo-credit">Photo: Wikimedia Commons（Panoramioより）</div>
     </div>
   </div>
 
