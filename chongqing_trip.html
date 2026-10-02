@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Chongqing Trip 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@700&text=%E9%87%8D%E6%85%B6%E9%AD%81%E6%98%9F%E6%A5%BC%E7%99%BD%E8%B1%A1%E5%B1%85%E5%B1%B1%E5%9F%8E%E5%B7%B7%E5%8D%81%E5%85%AB%E6%A2%AF%E6%B4%AA%E5%B4%96%E6%B4%9E%E6%AD%A6%E9%9A%86&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#f5f5f5;--card:#fff;--text:#0d1b2a;--muted:#6b7280;--light:#9aa5b4;--border:#e5e7eb;--sub:#f9fafb;
+  --navy:#0d1b2a;--navy-line:transparent;
+  --red:#c0392b;--red-dark:#922b21;--red-light:#fdf2f1;--red-mid:#e9a09a;
+  --tip-bg:#fffbea;--tip-text:#92400e;--warn-bg:#fff5f5;
+  --food-bg:#fff4eb;--food-text:#b45309;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0b121b;--card:#152030;--text:#e6ebf1;--muted:#a3adba;--light:#6f7c8c;--border:#243244;--sub:#101a27;
+    --navy:#0d1b2a;--navy-line:#243244;
+    --red:#e0584a;--red-dark:#f2a59c;--red-light:#2a1a1d;--red-mid:#e9a09a;
+    --tip-bg:#2a2314;--tip-text:#f3c77a;--warn-bg:#2a1719;
+    --food-bg:#33220f;--food-text:#f6b26b;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0b121b;--card:#152030;--text:#e6ebf1;--muted:#a3adba;--light:#6f7c8c;--border:#243244;--sub:#101a27;
+  --navy:#0d1b2a;--navy-line:#243244;
+  --red:#e0584a;--red-dark:#f2a59c;--red-light:#2a1a1d;--red-mid:#e9a09a;
+  --tip-bg:#2a2314;--tip-text:#f3c77a;--warn-bg:#2a1719;
+  --food-bg:#33220f;--food-text:#f6b26b;
+}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 56px);background:var(--bg)}
+body{font-family:'DM Sans','Hiragino Sans','Hiragino Kaku Gothic ProN','Noto Sans JP',Meiryo,sans-serif;background:var(--bg);color:var(--text);line-height:1.6;font-size:15px;-webkit-text-size-adjust:100%}
+img,svg{max-width:100%}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--red);outline-offset:2px}
+
+/* HEADER */
+.trip-header{background:var(--navy);color:#fff;padding:28px 20px 22px;position:relative;overflow:hidden;border-bottom:1px solid var(--navy-line)}
+.trip-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 80% 50%, rgba(192,57,43,.3) 0%, transparent 60%);pointer-events:none}
+.header-kanji{position:absolute;right:-6px;bottom:-18px;font-family:'Noto Serif JP',serif;font-weight:700;font-size:112px;line-height:1;color:rgba(255,255,255,.06);letter-spacing:.02em;pointer-events:none;user-select:none}
+.header-label{position:relative;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--red-mid);font-weight:600;margin-bottom:6px}
+.header-title{position:relative;font-family:'Playfair Display',Georgia,serif;font-size:32px;line-height:1.1;color:#fff;margin-bottom:4px}
+.header-sub{position:relative;font-size:12px;color:#9aa5b4;letter-spacing:.03em}
+
+/* NAV */
+.date-nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--card);border-bottom:1px solid var(--border);display:flex;overflow-x:auto;scrollbar-width:none}
+.date-nav::-webkit-scrollbar{display:none}
+.date-nav a{flex:none;padding:12px 18px;font-size:13px;font-weight:600;color:var(--muted);text-decoration:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color .2s,border-color .2s}
+.date-nav a:hover,.date-nav a.active{color:var(--red);border-bottom-color:var(--red)}
+
+main{max-width:600px;margin:0 auto;padding:16px 12px 80px}
+
+/* FLIGHT BOX */
+.flight-box{background:var(--navy);border:1px solid var(--navy-line);border-radius:14px;padding:20px;margin-bottom:14px}
+.flight-box-title{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red-mid);font-weight:600;margin-bottom:12px}
+.flight-row{display:grid;grid-template-columns:auto 1fr;gap:4px 10px;align-items:center;padding:10px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.flight-row:last-child{border-bottom:none}
+.flight-lbl{font-size:10px;font-weight:600;background:rgba(192,57,43,.25);color:var(--red-mid);padding:2px 8px;border-radius:20px;grid-row:span 2;align-self:start;margin-top:2px}
+.flight-route{font-size:14px;font-weight:600;color:#fff;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.flight-route .fn{font-size:11px;font-weight:600;color:var(--red-mid)}
+.flight-time{font-size:12px;color:#9aa5b4}
+
+/* HOTEL */
+.hotel-card{background:var(--red-light);border:1px solid var(--red-mid);border-radius:12px;padding:14px 16px;margin-bottom:20px}
+.hotel-name{font-size:14px;font-weight:700;color:var(--red-dark);line-height:1.45}
+.hotel-area{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
+.hotel-dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin-top:10px;font-size:12px}
+.hotel-dl dt{color:var(--muted)}
+.hotel-dl dd{color:var(--text);font-weight:500}
+.booking{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.booking code{font-family:'DM Sans',sans-serif;font-weight:700;font-size:13px;letter-spacing:.04em;color:var(--text)}
+.copy-btn{font:inherit;font-size:11px;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--text);padding:3px 10px;border-radius:8px;cursor:pointer}
+.copy-btn:hover{border-color:var(--red-mid);color:var(--red-dark)}
+
+/* DAY HEADER */
+.day-section{margin-bottom:40px}
+.day-header{display:flex;align-items:flex-start;gap:14px;padding:24px 0 14px;margin-bottom:4px}
+.day-badge{font-size:10px;font-weight:700;letter-spacing:.12em;background:var(--red);color:#fff;padding:4px 12px;border-radius:20px;flex:none;margin-top:3px}
+.day-date{font-family:'Playfair Display',Georgia,serif;font-size:22px;color:var(--text);line-height:1.2}
+.day-title{font-size:12px;color:var(--muted);margin-top:3px}
+
+/* EVENT CARD */
+.event-card{background:var(--card);border-radius:14px;overflow:hidden;margin-bottom:8px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.event-body{padding:14px 16px}
+.event-top{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;margin-bottom:4px}
+.event-time{font-size:11px;font-weight:700;color:var(--red);letter-spacing:.03em}
+.event-tag{font-size:10px;font-weight:600;padding:3px 9px;border-radius:20px;white-space:nowrap;flex:none}
+.tag-food{background:var(--food-bg);color:var(--food-text)}
+.tag-night{background:#1e1b4b;color:#a5b4fc}
+.tag-main{background:var(--tip-bg);color:var(--tip-text)}
+.event-name{font-size:15px;font-weight:700;color:var(--text);margin-bottom:5px;line-height:1.35}
+.event-desc{font-size:12px;color:var(--muted);line-height:1.75;margin-bottom:10px}
+.event-desc:last-child{margin-bottom:0}
+.event-divider{height:1px;background:var(--border);margin:10px 0}
+.tip{font-size:11px;color:var(--tip-text);background:var(--tip-bg);border-left:2px solid #f59e0b;padding:8px 10px;border-radius:0 6px 6px 0;margin:8px 0;line-height:1.65}
+.warn{font-size:11px;color:var(--red-dark);background:var(--warn-bg);border-left:2px solid var(--red);padding:8px 10px;border-radius:0 6px 6px 0;margin:8px 0;line-height:1.65}
+
+/* PHOTO (thumbnail on the left) */
+.photo{margin:0}
+.event-img{width:100%;aspect-ratio:1/1;object-fit:cover;display:block;background:var(--border);border-radius:10px}
+.event-card:has(> .photo){display:grid;grid-template-columns:96px minmax(0,1fr);gap:14px;padding:14px}
+.event-card:has(> .photo) .event-body{padding:0}
+.photo-credit{font-size:9px;color:var(--light);margin-top:8px;line-height:1.4}
+@media (min-width:480px){.event-card:has(> .photo){grid-template-columns:128px minmax(0,1fr);gap:16px;padding:16px}}
+
+.btn-row{display:flex;gap:6px;flex-wrap:wrap}
+.map-btn{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:600;background:var(--card);border:1px solid var(--border);color:var(--text);padding:5px 12px;border-radius:8px;text-decoration:none;transition:background .15s,border-color .15s,color .15s}
+.map-btn:hover{background:var(--red-light);border-color:var(--red-mid);color:var(--red-dark)}
+.map-btn svg{width:11px;height:11px;flex:none}
+button.map-btn{font:inherit;font-size:11px;font-weight:600;cursor:pointer}
+.copy-cn{border-style:dashed}
+.copy-cn span{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif}
+.copy-cn.done,.copy-btn.done{background:var(--red-light);border-color:var(--red-mid);color:var(--red-dark);border-style:solid}
+
+/* ACCORDION */
+.accordion{display:block}
+.accordion summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:1fr auto;grid-template-areas:"t c" "m c";align-items:center;gap:2px 10px;padding:14px 16px}
+.accordion summary::-webkit-details-marker{display:none}
+.acc-title{grid-area:t;font-size:15px;font-weight:700;color:var(--text)}
+.acc-meta{grid-area:m;font-size:11px;color:var(--muted)}
+.acc-chev{grid-area:c;width:18px;height:18px;color:var(--light);transition:transform .2s}
+.accordion[open] .acc-chev{transform:rotate(180deg)}
+.accordion[open] .acc-meta{display:none}
+.acc-body{padding:0 16px 10px;border-top:1px solid var(--border)}
+.accordion summary:focus-visible{outline:2px solid var(--red);outline-offset:-2px;border-radius:14px}
+
+/* TRANSIT */
+.transit{display:flex;align-items:center;margin:6px 0}
+.transit-pill{display:flex;align-items:center;gap:6px;background:var(--card);border:1px solid var(--border);border-radius:20px;padding:5px 12px;font-size:11px;color:var(--muted);margin:0 auto}
+.transit-pill svg{width:12px;height:12px;color:var(--light)}
+
+/* FLIGHT DETAIL */
+.flight-detail{display:grid;grid-template-columns:1fr 1fr;background:var(--sub);border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-top:8px}
+.fd-col{padding:12px 14px}
+.fd-col+.fd-col{border-left:1px solid var(--border)}
+.fd-label{font-size:9px;letter-spacing:.1em;color:var(--light);margin-bottom:3px}
+.fd-route{font-size:14px;font-weight:700;color:var(--text)}
+.fd-time{font-size:11px;color:var(--muted);margin-top:1px}
+
+.section-warn{background:var(--warn-bg);border:1px solid var(--red-mid);border-radius:10px;padding:12px 14px;margin-bottom:12px;font-size:12px;color:var(--red-dark);line-height:1.65}
+
+.dark-card{background:var(--navy);border:1px solid var(--navy-line)}
+.dark-card .event-time{color:var(--red-mid)}
+.dark-card .event-name{color:#fff}
+.dark-card .event-desc{color:#9aa5b4}
+
+/* GUIDE */
+.guide{background:var(--card);border-radius:16px;overflow:hidden;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,.06)}
+.guide-head{background:var(--red);color:#fff;padding:18px 20px 14px}
+.guide-head .g-label{font-size:10px;letter-spacing:.2em;text-transform:uppercase;opacity:.85;font-weight:600}
+.guide-head h2{font-family:'Playfair Display',Georgia,serif;font-size:24px;line-height:1.15;margin-top:2px}
+.guide-body{padding:18px 16px}
+.g-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px}
+.g-fact{background:var(--red-light);border-radius:10px;padding:12px}
+.g-k{font-size:10px;color:var(--red-dark);font-weight:700;margin-bottom:3px}
+.g-v{font-size:14px;font-weight:700;color:var(--text);line-height:1.35}
+.g-s{font-size:11px;color:var(--muted);margin-top:2px;line-height:1.5}
+.g-sec-title{display:flex;align-items:center;gap:8px;font-family:'Playfair Display','DM Sans',serif;font-size:17px;color:var(--text);margin:22px 0 10px}
+.g-sec-title::after{content:'';flex:1;height:1px;background:var(--border)}
+.g-num{font-family:'DM Sans',sans-serif;font-size:11px;font-weight:700;color:#fff;background:var(--red);width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;flex:none}
+.table-wrap{overflow-x:auto}
+.rate-table{width:100%;border-collapse:collapse;font-size:13px}
+.rate-table th{font-size:10px;color:var(--light);text-align:left;padding:6px 8px;border-bottom:1px solid var(--border);font-weight:600}
+.rate-table td{padding:8px;border-bottom:1px solid var(--border);font-weight:600}
+.rate-table td:last-child,.rate-table th:last-child{text-align:right}
+.rate-table td:last-child{color:var(--red-dark);white-space:nowrap}
+.rate-note{font-size:10px;color:var(--light);margin-top:6px}
+
+.checklist{list-style:none}
+.checklist li{border-bottom:1px dashed var(--border)}
+.checklist li:last-child{border-bottom:none}
+.checklist label{display:flex;gap:12px;padding:11px 0;cursor:pointer;align-items:flex-start}
+.checklist input{appearance:none;-webkit-appearance:none;flex:none;width:20px;height:20px;border:1.5px solid var(--red-mid);border-radius:6px;margin-top:1px;background:var(--card);display:grid;place-content:center;cursor:pointer}
+.checklist input::after{content:'';width:10px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translate(1px,-1px);opacity:0}
+.checklist input:checked{background:var(--red);border-color:var(--red)}
+.checklist input:checked::after{opacity:1}
+.c-k{font-size:10px;font-weight:700;color:var(--red-dark)}
+.c-v{font-size:13px;color:var(--text);line-height:1.6}
+.checklist input:checked + span .c-v{color:var(--light);text-decoration:line-through}
+.check-progress{font-size:11px;color:var(--muted);margin-bottom:4px}
+
+.g-tip-list{list-style:none}
+.g-tip-list li{display:flex;gap:10px;padding:9px 0;border-bottom:1px dashed var(--border);font-size:12.5px;color:var(--text);line-height:1.65}
+.g-tip-list li:last-child{border-bottom:none}
+.g-tip-list .ico{flex:none;width:22px;height:22px;border-radius:6px;background:var(--red-light);color:var(--red);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;margin-top:1px}
+
+.g-map{background:#0d1b2a;border-radius:12px;padding:6px;margin-top:4px}
+.g-map svg{width:100%;height:auto;display:block}
+.g-map-cap{font-size:10px;color:#9aa5b4;text-align:center;padding:8px 4px 6px}
+
+footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
+
+@media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+@media (min-width:420px){.header-kanji{font-size:140px}}
+</style>
+</head>
+<body>
+
+<header class="trip-header">
+  <div class="header-kanji" aria-hidden="true">重慶</div>
+  <div class="header-label">Travel Itinerary</div>
+  <div class="header-title">Chongqing Trip 2026</div>
+  <div class="header-sub">Dec 11 – Dec 14 · Chongqing · 3泊4日</div>
+</header>
+
+<nav class="date-nav" aria-label="日付">
+  <a href="#d1">12/11 金</a>
+  <a href="#d2">12/12 土</a>
+  <a href="#d3">12/13 日</a>
+  <a href="#d4">12/14 月</a>
+  <a href="#guide" id="guide-tab">観光ガイド</a>
+</nav>
+
+<main>
+
+<div class="flight-box">
+  <div class="flight-box-title">Flight</div>
+  <div class="flight-row">
+    <span class="flight-lbl">往路</span>
+    <span class="flight-route">NRT → CKG <span class="fn">CA434</span></span>
+    <span class="flight-time">12/11(金) 19:30 → 12/12(土) 00:35</span>
+  </div>
+  <div class="flight-row">
+    <span class="flight-lbl">復路</span>
+    <span class="flight-route">CKG → NRT <span class="fn">CA433</span></span>
+    <span class="flight-time">12/14(月) 13:05 → 18:30</span>
+  </div>
+</div>
+
+<div class="hotel-card">
+  <div class="hotel-name">FunGee ファンジーホテル（FUNGEE HOTEL）江景ホテル<br>重慶洪崖洞解放碑歩行街店</div>
+  <div class="hotel-area">ハッピートーク リバービュー シネマ クィーンルーム（千厮門の夜景＋全館スマート＋大型スクリーンプロジェクター）</div>
+  <dl class="hotel-dl">
+    <dt>宿泊</dt><dd>12/11(金)〜12/14(月)・3泊</dd>
+    <dt>予約番号</dt>
+    <dd class="booking"><code id="booking-no">1385436452347690</code><button class="copy-btn" type="button" data-copy="1385436452347690">コピー</button></dd>
+  </dl>
+  <div class="tip">チェックインは12/11宿泊枠で手配済み。12/12未明 01:30〜02:00着のLate Check-in連絡済み。</div>
+  <div class="btn-row" style="margin-top:10px">
+    <a class="map-btn" href="https://maps.google.com/?q=FunGee+Hotel+Hongyadong+Jiefangbei+Chongqing" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      マップ
+    </a>
+  </div>
+</div>
+
+<!-- TRAVEL GUIDE -->
+<section class="guide" id="guide" hidden>
+  <div class="guide-head">
+    <div class="g-label">Before You Go</div>
+    <h2>Chongqing Travel Guide</h2>
+  </div>
+  <div class="guide-body">
+
+    <div class="g-grid">
+      <div class="g-fact"><div class="g-k">時差</div><div class="g-v">−1時間</div><div class="g-s">日本が正午なら重慶は11時</div></div>
+      <div class="g-fact"><div class="g-k">通貨</div><div class="g-v">人民元（元）</div><div class="g-s">1元 ≈ 21円（目安）</div></div>
+      <div class="g-fact"><div class="g-k">気候（12月）</div><div class="g-v">5〜12℃前後</div><div class="g-s">曇り・霧が多く底冷え。厚手の上着を</div></div>
+      <div class="g-fact"><div class="g-k">電源プラグ</div><div class="g-v">A / C / Oタイプ</div><div class="g-s">電圧220V。変換プラグがあると安心</div></div>
+      <div class="g-fact"><div class="g-k">言語</div><div class="g-v">中国語（重慶方言）</div><div class="g-s">英語はほぼ通じない。翻訳アプリ必須</div></div>
+      <div class="g-fact"><div class="g-k">チップ</div><div class="g-v">不要</div><div class="g-s">支払いはほぼスマホ決済</div></div>
+    </div>
+
+    <div class="g-sec-title"><span class="g-num">✓</span>出発前の持ち物・アプリチェック</div>
+    <div class="check-progress" id="check-progress" aria-live="polite"></div>
+    <ul class="checklist" id="checklist">
+      <li><label><input type="checkbox" data-key="pay"><span><div class="c-k">決済</div><div class="c-v">Alipay（アリペイ）・WeChat Pay にクレジットカードを連携</div></span></label></li>
+      <li><label><input type="checkbox" data-key="map"><span><div class="c-k">地図</div><div class="c-v">高徳地図（Amap）をインストール（裏路地ナビ用）。各スポットの中国語名ボタンでコピーして、検索欄に貼り付ければOK</div></span></label></li>
+      <li><label><input type="checkbox" data-key="tour"><span><div class="c-k">手配</div><div class="c-v">11月中に Klook や Trip.com で「武隆カルスト1日ツアー」を予約</div></span></label></li>
+    </ul>
+
+    <div class="g-sec-title"><span class="g-num">¥</span>外貨ざっくり計算</div>
+    <div class="table-wrap">
+    <table class="rate-table">
+      <tr><th>人民元</th><th>使いどころ（目安）</th><th>日本円</th></tr>
+      <tr><td>10元</td><td>重慶小麺 1杯</td><td>約210円</td></tr>
+      <tr><td>50元</td><td>DiDiで市内移動〜空港</td><td>約1,050円</td></tr>
+      <tr><td>120元</td><td>火鍋をしっかり（1人）</td><td>約2,520円</td></tr>
+      <tr><td>500元</td><td>武隆ツアー・お土産</td><td>約10,500円</td></tr>
+    </table>
+    </div>
+    <div class="rate-note">※ 1元 ≈ 21円換算。「元の値段 × 20」でだいたいの円がわかる。レートは出発前に要確認。</div>
+
+    <div class="g-sec-title"><span class="g-num">!</span>注意ポイント</div>
+    <ul class="g-tip-list">
+      <li><span class="ico">・</span>Google・LINE・Instagramなどは中国本土で使えない。ローミングや対応eSIMを日本で準備しておく。</li>
+      <li><span class="ico">・</span>パスポートはホテル・観光地・高速移動で提示を求められることが多い。常に携帯。</li>
+      <li><span class="ico">・</span>重慶は坂と階段の街。1日中歩くので、歩き慣れたスニーカーで。</li>
+      <li><span class="ico">・</span>火鍋は辛さを選べる店が多い。「微辣（ウェイラー）」で頼んでも日本人にはかなり辛い。</li>
+      <li><span class="ico">・</span>洪崖洞は夜がピーク。人混みでのスリに注意し、スマホは手元から離さない。</li>
+      <li><span class="ico">・</span>渡航条件（ビザ免除の期間など）は出発前に外務省・大使館の最新情報を確認。</li>
+    </ul>
+
+    <div class="g-sec-title"><span class="g-num">M</span>ざっくりマップ</div>
+    <div class="g-map">
+      <svg viewBox="0 0 360 300" xmlns="http://www.w3.org/2000/svg" font-family="'DM Sans','Hiragino Sans',sans-serif" role="img" aria-label="重慶市内の位置関係イメージ図">
+        <defs>
+          <radialGradient id="glow" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#c0392b" stop-opacity=".35"/><stop offset="100%" stop-color="#c0392b" stop-opacity="0"/></radialGradient>
+        </defs>
+        <!-- rivers -->
+        <path d="M0 108 C70 98 140 104 200 110 S280 140 312 168" stroke="#22405e" stroke-width="10" fill="none" stroke-linecap="round"/>
+        <path d="M0 248 C70 244 150 226 220 208 S290 182 312 168 L360 150" stroke="#22405e" stroke-width="13" fill="none" stroke-linecap="round"/>
+        <text x="40" y="96" fill="#5b7a99" font-size="9">嘉陵江</text>
+        <text x="40" y="270" fill="#5b7a99" font-size="9">長江</text>
+        <!-- roads -->
+        <path d="M230 40 L232 132" stroke="#2c3e50" stroke-width="2.5" fill="none" stroke-dasharray="4 3"/>
+        <path d="M232 132 L222 162 L176 188" stroke="#2c3e50" stroke-width="2.5" fill="none"/>
+        <path d="M176 140 L232 132" stroke="#2c3e50" stroke-width="2.5" fill="none"/>
+        <path d="M222 162 L254 196" stroke="#2c3e50" stroke-width="2.5" fill="none"/>
+        <path d="M254 196 L336 272" stroke="#2c3e50" stroke-width="2.5" fill="none" stroke-dasharray="4 3"/>
+        <!-- airport -->
+        <circle cx="230" cy="40" r="5" fill="#e9a09a"/>
+        <text x="242" y="38" fill="#e9a09a" font-size="11" font-weight="700">江北空港</text>
+        <text x="242" y="51" fill="#9aa5b4" font-size="8.5">市内まで車で約40分</text>
+        <!-- hotel / hongyadong -->
+        <circle cx="232" cy="132" r="20" fill="url(#glow)"/><circle cx="232" cy="132" r="6" fill="#c0392b"/>
+        <text x="246" y="124" fill="#fff" font-size="11" font-weight="700">洪崖洞・ホテル</text>
+        <text x="246" y="137" fill="#9aa5b4" font-size="8.5">千厮門の夜景</text>
+        <!-- kuixing -->
+        <circle cx="176" cy="140" r="15" fill="url(#glow)"/><circle cx="176" cy="140" r="5" fill="#e9a09a"/>
+        <text x="164" y="136" fill="#e9a09a" font-size="11" text-anchor="end" font-weight="700">魁星楼</text>
+        <text x="164" y="149" fill="#9aa5b4" font-size="8.5" text-anchor="end">1F → 22F が地面</text>
+        <!-- jiefangbei -->
+        <circle cx="222" cy="162" r="4" fill="#9aa5b4"/>
+        <text x="212" y="166" fill="#9aa5b4" font-size="9" text-anchor="end">解放碑</text>
+        <!-- shibati -->
+        <circle cx="176" cy="188" r="15" fill="url(#glow)"/><circle cx="176" cy="188" r="5" fill="#e9a09a"/>
+        <text x="164" y="192" fill="#e9a09a" font-size="11" text-anchor="end" font-weight="700">山城巷・十八梯</text>
+        <!-- baixiangju -->
+        <circle cx="254" cy="196" r="15" fill="url(#glow)"/><circle cx="254" cy="196" r="5" fill="#e9a09a"/>
+        <text x="268" y="194" fill="#e9a09a" font-size="11" font-weight="700">白象居</text>
+        <text x="268" y="207" fill="#9aa5b4" font-size="8.5">長江ロープウェイ</text>
+        <!-- wulong -->
+        <circle cx="336" cy="272" r="5" fill="#e9a09a"/>
+        <text x="326" y="276" fill="#e9a09a" font-size="11" text-anchor="end" font-weight="700">武隆カルスト →</text>
+        <text x="326" y="289" fill="#9aa5b4" font-size="8.5" text-anchor="end">ツアー車で約2時間40分</text>
+      </svg>
+      <div class="g-map-cap">位置関係のイメージ図（縮尺は正確ではありません）· 市内の移動はDiDiが便利</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DAY 1 -->
+<section class="day-section" id="d1">
+  <div class="day-header">
+    <span class="day-badge">DAY 1</span>
+    <div>
+      <div class="day-date">12月11日（金）夜〜12日未明</div>
+      <div class="day-title">重慶到着 · ホテル移動</div>
+    </div>
+  </div>
+
+  <div class="section-warn">深夜着の日。機内で軽く寝ておくと翌日がラク。</div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">19:30</span></div>
+      <div class="event-name">NRT → CKG（中国国際航空 CA434）</div>
+      <div class="flight-detail">
+        <div class="fd-col">
+          <div class="fd-label">出発</div>
+          <div class="fd-route">19:30</div>
+          <div class="fd-time">成田（NRT）</div>
+        </div>
+        <div class="fd-col">
+          <div class="fd-label">到着</div>
+          <div class="fd-route">翌 00:35</div>
+          <div class="fd-time">重慶江北（CKG）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">00:35</span></div>
+      <div class="event-name">重慶江北国際空港（CKG）到着</div>
+      <div class="event-desc">入国手続き・荷物ピックアップ。</div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Chongqing+Jiangbei+International+Airport" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="重庆江北国际机场" aria-label="「重庆江北国际机场」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">重庆江北国际机场</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      DiDi（配車アプリ）またはタクシー
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">01:30</span></div>
+      <div class="event-name">ホテルへ移動</div>
+      <div class="event-desc">DiDiかタクシーで解放碑・洪崖洞エリアのホテルへ。</div>
+      <div class="tip">DiDiは日本でアプリ登録とカード連携を済ませておくと、深夜でも迷わず呼べる。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Chongqing%20Nightscape.jpg?width=900" alt="千厮門大橋と洪崖洞の夜景" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">02:00</span></div>
+      <div class="event-name">ホテル到着・チェックイン＆就寝</div>
+      <div class="event-desc">窓の外は千厮門の夜景。見とれすぎずに早めに寝る。</div>
+      <div class="photo-credit">Photo: Jay Huang / Wikimedia Commons (CC BY 2.0)</div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 2 -->
+<section class="day-section" id="d2">
+  <div class="day-header">
+    <span class="day-badge">DAY 2</span>
+    <div>
+      <div class="day-date">12月12日（土）</div>
+      <div class="day-title">迷宮・高低差建築 · 夜景BBQ · 洪崖洞</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">10:00</span><span class="event-tag tag-food">朝ごはん</span></div>
+      <div class="event-name">小波茶館（Xiaobo Tea House）で重慶小麺</div>
+      <div class="event-desc">「小波」と書かれたレトロな竹編み水筒が目印。木造の階段とアンティークな内装で、中国時代劇のセットに入り込んだような茶館。名物の重慶小麺と映えドリンクで朝ごはん。</div>
+      <div class="tip">朝イチは空いていて写真が撮り放題。戴家巷（洪崖洞のすぐ上の歩道エリア）にあるので、ホテルから散策スタートにちょうどいい。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Daijia+Lane+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E6%B3%A2%E8%8C%B6%E9%A6%86&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="小波茶馆" aria-label="「小波茶馆」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">小波茶馆</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      徒歩 · 戴家巷から魁星楼へ
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://thesmartlocal.com/wp-content/uploads/2024/12/Kuixinglou-Square.png" alt="魁星楼の広場" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">11:00</span></div>
+      <div class="event-name">【高低差バグ探検①】魁星楼</div>
+      <div class="event-desc">1階の広場からエレベーターで22階へ上がると、目の前にまた地面と広場が広がる。重慶の高低差を体で感じる最初のスポット。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Kuixing+Building+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%AD%81%E6%98%9F%E6%A5%BC&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="魁星楼" aria-label="「魁星楼」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">魁星楼</span></button>
+      </div>
+      <div class="photo-credit">Photo: 杰哥的旅行日记 via RED / TheSmartLocal</div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      徒歩 または DiDi
+    </div>
+  </div>
+
+  <div class="event-card">
+    
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">12:30</span></div>
+      <div class="event-name">【高低差バグ探検②】白象居</div>
+      <div class="event-desc">12階建てなのにエレベーターなし、3つの異なる階から外に出られる不思議マンション。長江ロープウェイとビルのコラボ写真を狙って自力で散策。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Baixiangju+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E7%99%BD%E8%B1%A1%E5%B1%85&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="白象居" aria-label="「白象居」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">白象居</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">13:30</span><span class="event-tag tag-food">激辛</span></div>
+      <div class="event-name">昼食：水煮魚 または 重慶麻婆豆腐</div>
+      <div class="event-desc">どちらか一方を気分で。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">14:30〜15:15</span><span class="event-tag tag-food">カフェ</span></div>
+      <div class="event-name">熹玥盒子（Xi Yue He Zi）でカフェ休憩</div>
+      <div class="event-desc">ドライアイスの煙や蓮の花の演出で、水の上を中国伝統菓子（中式点心）が流れてくるような幻想的な箱庭カフェ。桃の形の可愛いお菓子と中国茶で、魁星楼・白象居の歩き疲れをリセット。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Xi+Yue+He+Zi+Yuzhong+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E7%86%B9%E7%8E%A5%E7%9B%92%E5%AD%90&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="熹玥盒子" aria-label="「熹玥盒子」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">熹玥盒子</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shibati%20%E5%8D%81%E5%85%AB%E6%A2%AF%202022.1.1.jpg?width=900" alt="観音岩から見下ろす十八梯" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">15:30</span></div>
+      <div class="event-name">【断崖路地探検】山城巷 ➔ 十八梯</div>
+      <div class="event-desc">長江沿いの断崖絶壁にへばりつく旧市街の階段路地を散策。上り下りが多いので休憩しながら。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Shancheng+Lane+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>山城巷マップ</a>
+        <a class="map-btn" href="https://maps.google.com/?q=Shibati+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>十八梯マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%B1%B1%E5%9F%8E%E5%B7%B7&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="山城巷" aria-label="「山城巷」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">山城巷</span></button>
+        <button class="map-btn copy-cn" type="button" data-copy="十八梯" aria-label="「十八梯」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">十八梯</span></button>
+      </div>
+      <div class="photo-credit">Photo: Daredemodaisuki 114514 / Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      DiDi · 十八梯から南濱路へ
+    </div>
+  </div>
+
+  <div class="event-card">
+  <div class="event-body">
+    <div class="event-top"><span class="event-time">17:30</span><span class="event-tag tag-night">夜景</span></div>
+    <div class="event-name">夕食：張三的烤肉・听民謡看夜景（Zhang San De Kao Rou）</div>
+    <div class="event-desc">対岸の高層ビル群と千厮門大橋のライトアップを真正面に眺めながら、炭火焼き肉と民謡ライブが楽しめる屋外BBQ。南岸区・南濱路の川沿い。</div>
+    <div class="tip">川沿いのテラス席が超人気。17:30〜18:00頃の早めの時間が狙い目。</div>
+    <div class="event-divider"></div>
+  <div class="btn-row">
+    <a class="map-btn" href="https://maps.google.com/?q=Nanbin+Road+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+    <a class="map-btn" href="https://uri.amap.com/search?keyword=%E5%BC%A0%E4%B8%89%E7%9A%84%E7%83%A4%E8%82%89%20%E5%8D%97%E6%BB%A8%E8%B7%AF&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+    <button class="map-btn copy-cn" type="button" data-copy="张三的烤肉" aria-label="「张三的烤肉」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">张三的烤肉</span></button>
+  </div>
+  </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      DiDi · 南濱路から洪崖洞へ
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://commons.wikimedia.org/wiki/Special:FilePath/202308%20Hongya%20Cave%20at%20night%20from%20Qiansimen%20Bridge.jpg?width=900" alt="千厮門大橋から見た夜の洪崖洞" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">20:00</span><span class="event-tag tag-night">夜景</span></div>
+      <div class="event-name">重慶洪崖洞（西北門）の立体攻略</div>
+      <div class="event-desc">『千と千尋』のような崖の上の木造建築群。夜景を眺めてから、迷宮のような内部をフロアごとに散策。</div>
+      <div class="tip">ホテルから近いので、疲れたらすぐ戻れる。夜は混むので人混みでのスリに注意。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Hongyadong+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%B4%AA%E5%B4%96%E6%B4%9E&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="洪崖洞" aria-label="「洪崖洞」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">洪崖洞</span></button>
+      </div>
+      <div class="photo-credit">Photo: Jonashtand / Wikimedia Commons</div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 3 -->
+<section class="day-section" id="d3">
+  <div class="day-header">
+    <span class="day-badge">DAY 3</span>
+    <div>
+      <div class="day-date">12月13日（日）</div>
+      <div class="day-title">世界遺産「武隆カルスト」探検日帰りツアー · 夜は火鍋</div>
+    </div>
+  </div>
+
+  <div class="section-warn">前日（12/12）18:00〜21:00頃に、ドライバー／ガイドからKlookのチャット（またはSMS・WeChat）でお迎えの詳細（車番・正確な時間）が届く。必ず確認してから寝ること。
+    <div class="booking" style="margin-top:10px">
+      <a class="map-btn" href="https://www.klook.com/ja/experiences/booking_detail/?guid=5590736131&amp;bookingNo=CVK844840&amp;sub_category_id=2" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7M21 3l-9 9M19 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h5"/></svg>Klookの予約を開く</a>
+      <span style="display:inline-flex;align-items:center;gap:8px;white-space:nowrap"><span style="font-size:11px;color:var(--muted)">予約番号</span><code>CVK844840</code><button class="copy-btn" type="button" data-copy="CVK844840">コピー</button></span>
+    </div>
+  </div>
+
+  <details class="event-card accordion">
+    <summary><span class="acc-title">Day 3 の注意メモ</span><span class="acc-meta">靴・防寒・雨具・パスポート・酔い止め</span><svg class="acc-chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></summary>
+    <div class="acc-body">
+      <ul class="g-tip-list">
+        <li><span class="ico">靴</span><span>階段の上り下りと濡れた石畳をかなり歩く激重歩行ゾーン。絶対に履き慣れたスニーカーで。</span></li>
+        <li><span class="ico">寒</span><span>武隆の山間部は重慶市内より3〜5℃低い。脱ぎ着しやすい防寒着が必須。</span></li>
+        <li><span class="ico">雨</span><span>地縫の中は水滴や滝のしぶきが舞う。折りたたみ傘かフード付きジャケットがあると便利。</span></li>
+        <li><span class="ico">旅</span><span>入場券（Klookでセット済み）の引き換えにパスポート原本が必要。絶対に忘れないこと。</span></li>
+        <li><span class="ico">酔</span><span>山道と高速を片道約2時間半。車酔いしやすいなら出発前に酔い止めを。</span></li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">07:00</span></div>
+      <div class="event-name">ホテル前ピックアップ・出発</div>
+      <div class="event-desc">FunGeeファンジーホテル1階（高盛創富中心付近）で、8名限定ミニバンに乗車。</div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      ミニバン · 約2時間40分（車内で仮眠推奨）
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">10:00〜12:30</span></div>
+      <div class="event-name">【スポット1】仙女山国家森林公園</div>
+      <div class="event-desc">広大な高原の景色を散策。ここはおまけ程度にサクッと鑑賞。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Fairy+Mountain+National+Forest+Park+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E4%BB%99%E5%A5%B3%E5%B1%B1%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="仙女山国家森林公园" aria-label="「仙女山国家森林公园」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">仙女山国家森林公园</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">12:30〜13:30</span><span class="event-tag tag-food">ランチ</span></div>
+      <div class="event-name">昼食（各自）</div>
+      <div class="event-desc">ガイドの案内に従って、景勝地近くでランチ。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://thesmartlocal.com/wp-content/uploads/2024/12/Tianlong-bridge.png" alt="武隆・天龍橋" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">13:30〜15:30</span><span class="event-tag tag-main">メイン 1</span></div>
+      <div class="event-name">【スポット2】天生三橋（Three Natural Bridges）</div>
+      <div class="event-desc">『トランスフォーマー』や『天空の城ラピュタ』のような世界観。3つの巨大な天然アーチ橋と、古建築「天福官驛」を徒歩で散策。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Three+Natural+Bridges+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E5%A4%A9%E7%94%9F%E4%B8%89%E6%A1%A5&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="武隆天生三桥" aria-label="「武隆天生三桥」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">武隆天生三桥</span></button>
+      </div>
+      <div class="photo-credit">Photo: 夏九九 via RED / TheSmartLocal</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">15:30〜17:30</span><span class="event-tag tag-main">メイン 2</span></div>
+      <div class="event-name">【スポット3】龍水峡地縫（Longshuixia Gorge）</div>
+      <div class="event-desc">深さ300mの切り立った割れ目峡谷を下る大冒険ルート。地下滝や断崖絶壁の遊歩道は迫力満点。</div>
+      <div class="tip">足元が濡れていて滑りやすい。雨具はここで活躍。</div>
+      <div class="event-divider"></div>
+      <div class="btn-row">
+        <a class="map-btn" href="https://maps.google.com/?q=Longshuixia+Gorge+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
+        <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%BE%99%E6%B0%B4%E5%B3%A1%E5%9C%B0%E7%BC%9D&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
+        <button class="map-btn copy-cn" type="button" data-copy="龙水峡地缝" aria-label="「龙水峡地缝」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span lang="zh-CN">龙水峡地缝</span></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      17:30頃 武隆発 · バスで重慶市内へ（渋滞で遅れることあり）
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">20:00頃</span></div>
+      <div class="event-name">解放碑エリア（ホテル周辺）で解散</div>
+      <div class="event-desc">17:30頃にバスで武隆を出発して、20:00頃に渝中区・解放碑付近で解散。ホテルまでは歩いて戻れる。</div>
+      <div class="warn">祝日などで渋滞すると、解散が遅れることあり。この日の夜は時間を決めた予定を入れないこと。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <figure class="photo"><img class="event-img" src="https://thesmartlocal.com/wp-content/uploads/2024/12/Chongqing-hotpot.png" alt="重慶火鍋" loading="lazy" onerror="this.closest('.photo').remove()"></figure>
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">20:30頃〜</span><span class="event-tag tag-food">激辛</span></div>
+      <div class="event-name">夕食：本場・九宮格重慶火鍋でシメ</div>
+      <div class="event-desc">鍋が9マスに仕切られた、牛脂スープの激辛火鍋。具材ごとにマスを使い分けて煮込む。</div>
+      <div class="tip">辛さは「微辣」でも十分攻撃力あり。胃薬と、甘い豆乳やドリンクを一緒に頼むと安心。</div>
+      <div class="tip">時間は目安。ツアーが遅れても困らないよう予約はせず、解放碑周辺で遅くまで開いている店を選ぶ。</div>
+      <div class="photo-credit">Photo: 春风 &amp; 爱吃肉的小柠檬 via RED / TheSmartLocal</div>
+    </div>
+  </div>
+</section>
+
+<!-- DAY 4 -->
+<section class="day-section" id="d4">
+  <div class="day-header">
+    <span class="day-badge">DAY 4</span>
+    <div>
+      <div class="day-date">12月14日（月）</div>
+      <div class="day-title">最終日 · 帰国</div>
+    </div>
+  </div>
+
+  <div class="section-warn">荷造りは前夜に済ませておくこと。13:05発なので空港へは余裕を持って。</div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">09:30</span></div>
+      <div class="event-name">ホテルチェックアウト・最後の買い物や軽食</div>
+      <div class="event-desc">忘れ物チェック。ホテル周辺の解放碑エリアでラストショッピング。</div>
+    </div>
+  </div>
+
+  <div class="transit">
+    <div class="transit-pill">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      10:30発 · DiDi で空港へ
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">11:05</span></div>
+      <div class="event-name">重慶江北国際空港 到着</div>
+      <div class="event-desc">チェックイン・出国審査。免税店でラストショッピング。</div>
+      <div class="tip">残った人民元は空港で使い切るか、少額なら次回用に取っておく。</div>
+    </div>
+  </div>
+
+  <div class="event-card">
+    <div class="event-body">
+      <div class="event-top"><span class="event-time">13:05</span></div>
+      <div class="event-name">CKG → NRT（中国国際航空 CA433）</div>
+      <div class="flight-detail">
+        <div class="fd-col">
+          <div class="fd-label">出発</div>
+          <div class="fd-route">13:05</div>
+          <div class="fd-time">重慶江北（CKG）</div>
+        </div>
+        <div class="fd-col">
+          <div class="fd-label">到着</div>
+          <div class="fd-route">18:30</div>
+          <div class="fd-time">成田（NRT）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="event-card dark-card">
+    <div class="event-body">
+      <div class="event-time">18:30</div>
+      <div class="event-name">成田空港 着 — おかえり</div>
+      <div class="event-desc">激辛の記憶とお土産を持って無事帰国。お疲れさまでした。</div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>重慶 わくわく旅行 2026</footer>
+
+<script>
+(function(){
+  var guide = document.getElementById('guide');
+  var tab = document.getElementById('guide-tab');
+  var navLinks = document.querySelectorAll('.date-nav a');
+  var hideOnGuide = document.querySelectorAll('.day-section, .flight-box, .hotel-card');
+
+  function setActive(el){ navLinks.forEach(function(a){ a.classList.toggle('active', a === el); }); }
+  function setGuideVisible(on){
+    guide.hidden = !on;
+    hideOnGuide.forEach(function(el){ el.style.display = on ? 'none' : ''; });
+    if(on){ setActive(tab); window.scrollTo(0,0); }
+  }
+  tab.addEventListener('click', function(e){ e.preventDefault(); setGuideVisible(true); });
+  navLinks.forEach(function(a){
+    if(a === tab) return;
+    a.addEventListener('click', function(){ setGuideVisible(false); setActive(a); });
+  });
+
+  // scroll spy
+  if('IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      if(!guide.hidden) return;
+      entries.forEach(function(en){
+        if(en.isIntersecting){
+          var link = document.querySelector('.date-nav a[href="#'+en.target.id+'"]');
+          if(link) setActive(link);
+        }
+      });
+    }, {rootMargin:'-45% 0px -50% 0px'});
+    document.querySelectorAll('.day-section').forEach(function(s){ io.observe(s); });
+  }
+
+  // copy text (booking number / Chinese names for Amap)
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    var original = btn.innerHTML, timer;
+    function flash(msg){
+      clearTimeout(timer); btn.textContent = msg; btn.classList.add('done');
+      timer = setTimeout(function(){ btn.innerHTML = original; btn.classList.remove('done'); }, 1600);
+    }
+    btn.addEventListener('click', function(){
+      var text = btn.getAttribute('data-copy');
+      function fallback(){
+        var ta = document.createElement('textarea'); ta.value = text; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false; try{ ok = document.execCommand('copy'); }catch(e){}
+        document.body.removeChild(ta);
+        flash(ok ? 'コピーしました' : '長押しでコピー');
+      }
+      try{
+        if(navigator.clipboard && navigator.clipboard.writeText){ navigator.clipboard.writeText(text).then(function(){ flash('コピーしました'); }, fallback); }
+        else fallback();
+      }catch(e){ fallback(); }
+    });
+  });
+
+  // checklist (remembered on this device)
+  var KEY = 'cq-trip-checklist';
+  var state = {};
+  try{ state = JSON.parse(localStorage.getItem(KEY) || '{}') || {}; }catch(e){ state = {}; }
+  var boxes = document.querySelectorAll('#checklist input');
+  var prog = document.getElementById('check-progress');
+  function render(){
+    var n = 0; boxes.forEach(function(b){ if(b.checked) n++; });
+    prog.textContent = n === boxes.length ? 'すべて準備OK' : boxes.length + '件中 ' + n + '件 完了';
+  }
+  boxes.forEach(function(b){
+    b.checked = !!state[b.dataset.key];
+    b.addEventListener('change', function(){
+      state[b.dataset.key] = b.checked;
+      try{ localStorage.setItem(KEY, JSON.stringify(state)); }catch(e){}
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
