@@ -80,7 +80,7 @@ main{max-width:600px;margin:0 auto;padding:16px 12px 80px}
 .day-section{margin-bottom:40px}
 .day-header{display:flex;align-items:flex-start;gap:14px;padding:24px 0 14px;margin-bottom:4px}
 .day-badge{font-size:10px;font-weight:700;letter-spacing:.12em;background:var(--red);color:#fff;padding:4px 12px;border-radius:20px;flex:none;margin-top:3px}
-.day-date{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Hiragino Sans','Hiragino Kaku Gothic ProN','Segoe UI','Noto Sans JP',sans-serif;font-weight:700;font-size:22px;letter-spacing:-.01em;color:var(--text);line-height:1.25}
+.day-date{font-family:-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text','Hiragino Sans','Hiragino Kaku Gothic ProN','Segoe UI','Noto Sans JP',sans-serif;font-weight:600;font-size:15px;letter-spacing:0;color:var(--text);line-height:1.4}
 .day-title{font-size:12px;color:var(--muted);margin-top:3px}
 
 /* EVENT CARD */
@@ -106,6 +106,10 @@ main{max-width:600px;margin:0 auto;padding:16px 12px 80px}
 .event-card:has(> .photo) > .photo{grid-column:2;grid-row:1}
 .event-card:has(> .photo) > .event-body{grid-column:1;grid-row:1}
 .event-card:has(> .photo) .event-body{padding:0}
+.card-foot{padding:0 16px 14px}
+.event-body:has(+ .card-foot){padding-bottom:0}
+.event-card:has(> .photo) > .card-foot{grid-column:1/-1;grid-row:2;padding:0}
+.card-foot .event-divider{margin-top:2px}
 .photo-credit{font-size:9px;color:var(--light);margin-top:8px;line-height:1.4}
 @media (min-width:480px){.event-card:has(> .photo){grid-template-columns:minmax(0,1fr) 180px;gap:18px;padding:16px}}
 
@@ -247,7 +251,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
 
 <div class="hotel-card">
   <div class="hotel-name">FunGee ファンジーホテル（FUNGEE HOTEL）江景ホテル<br>重慶洪崖洞解放碑歩行街店</div>
-  <div class="hotel-area">ハッピートーク リバービュー シネマ クィーンルーム（千厮門の夜景＋全館スマート＋大型スクリーンプロジェクター）</div>
   <dl class="hotel-dl">
     <dt>宿泊</dt><dd>12/11(金)〜12/14(月)・3泊</dd>
     <dt>住所</dt><dd lang="zh-CN">渝中区滨江路113号高盛创富中心C栋21楼</dd>
@@ -370,7 +373,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     </div>
   </div>
 
-  <div class="section-warn">深夜着の日。機内で軽く寝ておくと翌日がラク。</div>
 
   <div class="event-card">
     <div class="event-body">
@@ -395,7 +397,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">00:35</span></div>
       <div class="event-name">重慶江北国際空港（CKG）到着</div>
-      <div class="event-desc">入国手続き・荷物ピックアップ。</div>
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Chongqing+Jiangbei+International+Airport" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%87%8D%E5%BA%86%E6%B1%9F%E5%8C%97%E5%9B%BD%E9%99%85%E6%9C%BA%E5%9C%BA&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -416,7 +417,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-top"><span class="event-time">01:30</span></div>
       <div class="event-name">ホテルへ移動</div>
       <div class="event-desc">DiDiかタクシーで解放碑・洪崖洞エリアのホテルへ。</div>
-      <div class="tip">DiDiは日本でアプリ登録とカード連携を済ませておくと、深夜でも迷わず呼べる。</div>
       <div class="btn-row">
         <a class="map-btn" href="https://uri.amap.com/search?keyword=FunGee%E6%AC%A2%E8%87%B4%E6%B1%9F%E6%99%AF%E9%85%92%E5%BA%97%20%E6%B4%AA%E5%B4%96%E6%B4%9E%E8%A7%A3%E6%94%BE%E7%A2%91%E6%AD%A5%E8%A1%8C%E8%A1%97%E5%BA%97&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
         <button class="map-btn copy-cn" type="button" data-copy="FunGee欢致江景酒店(重庆洪崖洞解放碑步行街店)" aria-label="「FunGee欢致江景酒店(重庆洪崖洞解放碑步行街店)」をコピー"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span>ホテル名（中国語）</span></button>
@@ -430,7 +430,9 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">02:00</span></div>
       <div class="event-name">ホテル到着・チェックイン＆就寝</div>
-      <div class="event-desc">窓の外は千厮門の夜景。見とれすぎずに早めに寝る。</div>
+    </div>
+    <div class="card-foot">
+      <div class="event-divider"></div>
       <div class="photo-credit">Photo: Jay Huang / Wikimedia Commons (CC BY 2.0)</div>
     </div>
   </div>
@@ -450,7 +452,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">09:50</span></div>
       <div class="event-name">ホテル（FunGee）出発</div>
-      <div class="event-desc">今日は午前中ずっと徒歩で回れる。歩きやすい靴で。</div>
     </div>
   </div>
 
@@ -490,8 +491,11 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">11:00</span></div>
       <div class="event-name">【高低差バグ探検①】魁星楼</div>
-      <div class="event-desc">1階の広場からエレベーターで22階へ上がると、目の前にまた地面と広場が広がる。重慶の高低差を体で感じる最初のスポット。</div>
+      <div class="event-desc">1階の広場からエレベーターで22階へ上がると、目の前にまた地面と広場が広がる。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Kuixing+Building+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%AD%81%E6%98%9F%E6%A5%BC&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -537,7 +541,10 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-top"><span class="event-time">12:30</span></div>
       <div class="event-name">【高低差バグ探検②】白象居</div>
       <div class="event-desc">12階建てなのにエレベーターなし、3つの異なる階から外に出られる不思議マンション。長江ロープウェイとビルのコラボ写真を狙って自力で散策。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Baixiangju+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E7%99%BD%E8%B1%A1%E5%B1%85&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -551,7 +558,6 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">13:30</span><span class="event-tag tag-food">激辛</span></div>
       <div class="event-name">昼食：水煮魚 or 麻婆豆腐（候補3店）</div>
-      <div class="event-desc">どこにするかは当日の気分で。横にスワイプして比べてね。</div>
     </div>
     <div class="lunch-row" role="list" aria-label="ランチ候補">
       <article class="lunch-card">
@@ -595,7 +601,7 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">14:30〜15:15</span><span class="event-tag tag-food">カフェ</span></div>
       <div class="event-name">熹玥盒子（Xi Yue He Zi）でカフェ休憩</div>
-      <div class="event-desc">ドライアイスの煙や蓮の花の演出で、水の上を中国伝統菓子（中式点心）が流れてくるような幻想的な箱庭カフェ。桃の形の可愛いお菓子と中国茶で、魁星楼・白象居の歩き疲れをリセット。</div>
+      <div class="event-desc">ドライアイスの煙や蓮の花の演出で、水の上を中国伝統菓子（中式点心）が流れてくるような幻想的な箱庭カフェ。</div>
       <div class="event-divider"></div>
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Xi+Yue+He+Zi+Yuzhong+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
@@ -610,8 +616,11 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">15:30</span></div>
       <div class="event-name">【断崖路地探検】山城巷 ➔ 十八梯</div>
-      <div class="event-desc">長江沿いの断崖絶壁にへばりつく旧市街の階段路地を散策。上り下りが多いので休憩しながら。</div>
+      <div class="event-desc">長江沿いの断崖絶壁にへばりつく旧市街の階段路地を散策。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Shancheng+Lane+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>山城巷マップ</a>
         <a class="map-btn" href="https://maps.google.com/?q=Shibati+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>十八梯マップ</a>
@@ -659,7 +668,10 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-name">重慶洪崖洞（西北門）の立体攻略</div>
       <div class="event-desc">『千と千尋』のような崖の上の木造建築群。夜景を眺めてから、迷宮のような内部をフロアごとに散策。</div>
       <div class="tip">ホテルから近いので、疲れたらすぐ戻れる。夜は混むので人混みでのスリに注意。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Hongyadong+Chongqing" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%B4%AA%E5%B4%96%E6%B4%9E&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -721,7 +733,10 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-top"><span class="event-time">10:00〜12:30</span></div>
       <div class="event-name">【スポット1】仙女山国家森林公園</div>
       <div class="event-desc">広大な高原の景色を散策。ここはおまけ程度にサクッと鑑賞。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Fairy+Mountain+National+Forest+Park+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E4%BB%99%E5%A5%B3%E5%B1%B1%E5%9B%BD%E5%AE%B6%E6%A3%AE%E6%9E%97%E5%85%AC%E5%9B%AD&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -745,7 +760,10 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-top"><span class="event-time">13:30〜15:30</span><span class="event-tag tag-main">メイン 1</span></div>
       <div class="event-name">【スポット2】天生三橋（Three Natural Bridges）</div>
       <div class="event-desc">『トランスフォーマー』や『天空の城ラピュタ』のような世界観。3つの巨大な天然アーチ橋と、古建築「天福官驛」を徒歩で散策。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Three+Natural+Bridges+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E6%AD%A6%E9%9A%86%E5%A4%A9%E7%94%9F%E4%B8%89%E6%A1%A5&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -760,9 +778,12 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
     <div class="event-body">
       <div class="event-top"><span class="event-time">15:30〜17:30</span><span class="event-tag tag-main">メイン 2</span></div>
       <div class="event-name">【スポット3】龍水峡地縫（Longshuixia Gorge）</div>
-      <div class="event-desc">深さ300mの切り立った割れ目峡谷を下る大冒険ルート。地下滝や断崖絶壁の遊歩道は迫力満点。</div>
+      <div class="event-desc">深さ300mの切り立った割れ目峡谷を下る大冒険ルート。</div>
       <div class="tip">足元が濡れていて滑りやすい。雨具はここで活躍。</div>
+    </div>
+    <div class="card-foot">
       <div class="event-divider"></div>
+      
       <div class="btn-row">
         <a class="map-btn" href="https://maps.google.com/?q=Longshuixia+Gorge+Wulong" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>マップ</a>
         <a class="map-btn" href="https://uri.amap.com/search?keyword=%E9%BE%99%E6%B0%B4%E5%B3%A1%E5%9C%B0%E7%BC%9D&city=500000&src=trip" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11l18-8-8 18-2-8-8-2z"/></svg>高徳地図</a>
@@ -796,6 +817,9 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       <div class="event-desc">鍋が9マスに仕切られた、牛脂スープの激辛火鍋。具材ごとにマスを使い分けて煮込む。</div>
       <div class="tip">辛さは「微辣」でも十分攻撃力あり。胃薬と、甘い豆乳やドリンクを一緒に頼むと安心。</div>
       <div class="tip">時間は目安。ツアーが遅れても困らないよう予約はせず、解放碑周辺で遅くまで開いている店を選ぶ。</div>
+    </div>
+    <div class="card-foot">
+      <div class="event-divider"></div>
       <div class="photo-credit">Photo: 春风 &amp; 爱吃肉的小柠檬 via RED / TheSmartLocal</div>
     </div>
   </div>
@@ -924,6 +948,34 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
       }catch(e){ fallback(); }
     });
   });
+
+  // open Amap app directly on phones (falls back to the web page)
+  (function(){
+    var ua = navigator.userAgent || '';
+    var isIOS = /iPhone|iPad|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+    var isAndroid = /Android/.test(ua);
+    if(!isIOS && !isAndroid) return;
+    document.querySelectorAll('a[href^="https://uri.amap.com/search"]').forEach(function(a){
+      var web = a.href, kw = '';
+      try{ kw = new URL(web).searchParams.get('keyword') || ''; }catch(e){ return; }
+      var q = encodeURIComponent(kw);
+      var app = isIOS
+        ? 'iosamap://poi?sourceApplication=cqtrip&name=' + q + '&dev=0'
+        : 'androidamap://poi?sourceApplication=cqtrip&keywords=' + q + '&dev=0';
+      a.removeAttribute('target');
+      a.addEventListener('click', function(e){
+        e.preventDefault();
+        var left = false;
+        function onHide(){ if(document.hidden) left = true; }
+        document.addEventListener('visibilitychange', onHide);
+        window.location.href = app;
+        setTimeout(function(){
+          document.removeEventListener('visibilitychange', onHide);
+          if(!left && !document.hidden) window.location.href = web;
+        }, 1600);
+      });
+    });
+  })();
 
   // checklist (remembered on this device)
   var KEY = 'cq-trip-checklist';
