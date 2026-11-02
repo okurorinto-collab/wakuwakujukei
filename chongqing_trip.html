@@ -210,6 +210,10 @@ button.map-btn{font:inherit;font-size:11px;font-weight:600;cursor:pointer}
 .g-map svg{width:100%;height:auto;display:block}
 .g-map-cap{font-size:10px;color:#9aa5b4;text-align:center;padding:8px 4px 6px}
 
+/* WALICA FAB */
+.fab-walica{position:fixed;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:60;display:inline-flex;align-items:center;gap:6px;background:var(--red);color:#fff;font-size:13px;font-weight:700;text-decoration:none;padding:12px 16px;border-radius:999px;box-shadow:0 6px 18px rgba(13,27,42,.28);transition:transform .15s,background .15s}
+.fab-walica svg{width:15px;height:15px}
+.fab-walica:hover{background:var(--red-dark);transform:translateY(-1px)}
 footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
 
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
@@ -890,6 +894,11 @@ footer{text-align:center;padding:24px 16px;font-size:11px;color:var(--light)}
 </section>
 
 </main>
+
+<a class="fab-walica" href="https://walica.jp/group/01M6DPQ8HNWTX6BDHG77H917CC" target="_blank" rel="noopener" aria-label="割り勘（walica）を開く">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+  割り勘
+</a>
 
 <footer>重慶 わくわく旅行 2026</footer>
 
